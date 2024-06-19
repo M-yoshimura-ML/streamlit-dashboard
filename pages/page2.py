@@ -16,3 +16,18 @@ y = pd.Series(iris.target, name="species")
 
 st.write(X)
 st.write(y)
+
+# learning data and test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+
+# learning model
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+
+# predict test data
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+st.write(f"accuracy is {accuracy}.")
+
+
+
